@@ -1,0 +1,28 @@
+{
+  "name": "payload-validator",
+  "version": "1.0.0",
+  "description": "Validate the API Payload structure against incoming request.",
+  "main": "./bin",
+  "bin": {
+    "payload-validator": "index.js"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforgeek/payload-validator.git"
+  },
+  "keywords": [
+    "api",
+    "payload",
+    "validator",
+    "express"
+  ],
+  "author": "Shahid Shaikh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforgeek/payload-validator/issues"
+  },
+  "homepage": "https://github.com/codeforgeek/payload-validator#readme"
+}
