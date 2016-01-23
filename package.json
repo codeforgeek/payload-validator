@@ -1,8 +1,8 @@
 {
   "name": "payload-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validate the API Payload structure against incoming request.",
-  "main": "./bin",
+  "main": "./bin/index.js",
   "bin": {
     "payload-validator": "index.js"
   },
