@@ -89,3 +89,15 @@ If you pass unexpected data such number but expected is String so you will get e
   success: false
 }
 ```
+Once validation is successful you will receive following message.
+
+```javascript
+{
+    elements: {
+        someString: 'Hello',
+        someNumber: 1, 
+        someArray: [ {} ]
+    },
+  success: true
+}
+```
