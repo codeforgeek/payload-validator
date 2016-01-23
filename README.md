@@ -18,7 +18,7 @@ Once you provide these information, this module will check the structure of JSON
 You can install this module by typing
 
 ```javascript
-npm install nameofpackage
+npm install payload-validator
 ```
 
 Include the module in file.
@@ -95,7 +95,7 @@ Once validation is successful you will receive following message.
 {
     elements: {
         someString: 'Hello',
-        someNumber: 1, 
+        someNumber: 1,
         someArray: [ {} ]
     },
   success: true
