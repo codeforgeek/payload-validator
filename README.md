@@ -17,38 +17,75 @@ Once you provide these information, this module will check the structure of JSON
 
 You can install this module by typing
 
-```npm install nameofpackage```
+```javascript
+npm install nameofpackage
+```
 
 Include the module in file.
 
-``` var payloadCheck = require('payload-validator'); ```
+```javascript
+var payloadCheck = require('payload-validator');
+```
 
 Call the function using following syntax.
 
-``` var result = payloadCheck.validator(incomingApiPayload, expectedPayload, mandatory elements array, blank value flag) ```
+```javascript
+ var result = payloadCheck.validator(
+     incomingApiPayload,
+     expectedPayload,
+     mandatory elements array,
+     blank value flag
+    )
+ ```
 
 Check for result.success key in order to know validation failed or not. If its false look for result.response.errorMessage for exact error.
 
 ## Example.
 
 ### Expected payload
-
+```javascript
 var source = {
     "someString" : "", // represent string
-    "someNumber" : 0 // represent number
+    "someNumber" : 0, // represent number
     "someObject" : {},
     "someArray"  : []
 }
-
 ```
+### Incoming payload
+
+```javascript
 var target = {
     "someString" : "Hello",
     "someNumber" : 0,
     "someObject" : {},
-    "someArray" : [1,2]      
+    "someArray" : [1,2]
 }
-
 ```
+### Validator result.
+
+```javascript
 var result = payloadCheck.validator(source, target, ["someNumber"], true);
 console.log(result);
+```
+Here is the result.
+
+```javascript
+{ response:
+   {
+       errorMessage: 'Parameter \'someObject\' value passed is blank',
+       errorKey: [ 'someObject' ]
+   },
+  success: false
+}
+```
+If you pass unexpected data such number but expected is String so you will get error message like this.
+
+```javascript
+{ response:
+   {
+       errorMessage: 'Parameter \'someString\' value expected is \'Number\'',
+       errorKey: [ 'someString' ]
+   },
+  success: false
+}
 ```
