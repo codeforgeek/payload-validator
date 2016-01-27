@@ -21,7 +21,7 @@ function validator(incomingApiPayload, expectedApiPayload,mandatory_elements,bla
                 param.response.errorMessage = "Parameter '" + key + "' value expected is '" + Object.prototype.toString.call(incomingApiPayload[key]).slice(8, -1) + "' of an '" + Object.prototype.toString.call(expectedApiPayload[key][0]).slice(8, -1) + "'";
                 param.success = false;
             } else {
-                arrValue = (expectedApiPayload[key][0] !== undefined) ? validator(incomingApiPayload[key][i], expectedApiPayload[key][0]) : incomingApiPayload[key][i];
+                arrValue = (expectedApiPayload[key][0] !== undefined) ? validator(incomingApiPayload[key][i], expectedApiPayload[key][0],mandatory_elements,blank_value) : incomingApiPayload[key][i];
                 string_value = (typeof(arrValue) === "string") ? true : false;
                 if(!string_value && (arrValue === null || !arrValue.success)) {
                     param.success = false;
@@ -54,7 +54,7 @@ function validator(incomingApiPayload, expectedApiPayload,mandatory_elements,bla
             param.success = false;
         } else if (typeof(expectedApiPayload[key]) === "object" && !(incomingApiPayload[key] instanceof Array)) {
             param.elements[key] = {};
-            var value = validator(incomingApiPayload[key], expectedApiPayload[key]);
+            var value = validator(incomingApiPayload[key], expectedApiPayload[key],mandatory_elements,blank_value);
             if(value.success) {
                 param.elements[key] = value.elements;
             } else {
