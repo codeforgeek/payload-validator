@@ -101,4 +101,4 @@ function validator(incomingApiPayload, expectedApiPayload,mandatory_elements,bla
     }
     return param;
 }
-module.exports.paramsValidator = validator;
+module.exports.validator = validator;
