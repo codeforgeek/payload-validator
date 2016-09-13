@@ -71,9 +71,9 @@ function validator(incomingApiPayload, expectedApiPayload,mandatory_elements,bla
                 blankParams.push(key);
                 param.success = false;
             }
-        } else if(typeof(expectedApiPayload[key]) === "number" && incomingApiPayload[key] < 0) {
+        } else if(typeof(expectedApiPayload[key]) === "number" && typeof incomingApiPayload[key] !== "number") {
             param.success = false;
-            param.response.errorMessage = "Parameter '" + key + "' value must have a positive number";
+            param.response.errorMessage = "Parameter '" + key + "' value is not a number'";
         } else {
             param.elements[key] = incomingApiPayload[key];
         }
